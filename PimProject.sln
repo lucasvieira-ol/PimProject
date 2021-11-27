@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataView", "PimDesktop\DataView.csproj", "{7E54FDB8-A69F-40E8-9334-AAF4DF9F0469}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4FE7A7E6-5344-4970-9215-1403F5AEFCF9} = {4FE7A7E6-5344-4970-9215-1403F5AEFCF9}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PimDesktop.Data.Server", "PimDesktop.Data.Server\PimDesktop.Data.Server.csproj", "{4FE7A7E6-5344-4970-9215-1403F5AEFCF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PimDesktop.Business", "PimDesktop.Business\PimDesktop.Business.csproj", "{8E41BF7A-5B26-4846-BB48-D0F1FF9B1905}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PimWebApi", "PimWebApi\PimWebApi.csproj", "{54C1125C-5E70-4807-A8F5-858CAA2035BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PimWebsite", "PimWebsite\PimWebsite.csproj", "{A2659C06-C8E7-4494-9233-05E06B88C24C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7E54FDB8-A69F-40E8-9334-AAF4DF9F0469}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E54FDB8-A69F-40E8-9334-AAF4DF9F0469}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E54FDB8-A69F-40E8-9334-AAF4DF9F0469}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E54FDB8-A69F-40E8-9334-AAF4DF9F0469}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FE7A7E6-5344-4970-9215-1403F5AEFCF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FE7A7E6-5344-4970-9215-1403F5AEFCF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FE7A7E6-5344-4970-9215-1403F5AEFCF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FE7A7E6-5344-4970-9215-1403F5AEFCF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E41BF7A-5B26-4846-BB48-D0F1FF9B1905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E41BF7A-5B26-4846-BB48-D0F1FF9B1905}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E41BF7A-5B26-4846-BB48-D0F1FF9B1905}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E41BF7A-5B26-4846-BB48-D0F1FF9B1905}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54C1125C-5E70-4807-A8F5-858CAA2035BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54C1125C-5E70-4807-A8F5-858CAA2035BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54C1125C-5E70-4807-A8F5-858CAA2035BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54C1125C-5E70-4807-A8F5-858CAA2035BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2659C06-C8E7-4494-9233-05E06B88C24C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2659C06-C8E7-4494-9233-05E06B88C24C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2659C06-C8E7-4494-9233-05E06B88C24C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2659C06-C8E7-4494-9233-05E06B88C24C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {80EFE750-4FF4-43A4-BDAC-6E1762A17643}
+	EndGlobalSection
+EndGlobal

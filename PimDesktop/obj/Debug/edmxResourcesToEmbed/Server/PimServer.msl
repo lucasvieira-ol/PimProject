@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db_pim_hmlModelStoreContainer" CdmEntityContainer="db_pim_hmlEntities1">
+    <EntitySetMapping Name="funcionario">
+      <EntityTypeMapping TypeName="db_pim_hmlModel.funcionario">
+        <MappingFragment StoreEntitySet="funcionario">
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="data_demissao" ColumnName="data_demissao" />
+          <ScalarProperty Name="data_admissao" ColumnName="data_admissao" />
+          <ScalarProperty Name="data_cadastro" ColumnName="data_cadastro" />
+          <ScalarProperty Name="funcao" ColumnName="funcao" />
+          <ScalarProperty Name="matricula" ColumnName="matricula" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="id_funcionario" ColumnName="id_funcionario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hospede">
+      <EntityTypeMapping TypeName="db_pim_hmlModel.hospede">
+        <MappingFragment StoreEntitySet="hospede">
+          <ScalarProperty Name="segundo_telefone" ColumnName="segundo_telefone" />
+          <ScalarProperty Name="primeiro_telefone" ColumnName="primeiro_telefone" />
+          <ScalarProperty Name="segundo_endereco" ColumnName="segundo_endereco" />
+          <ScalarProperty Name="primeiro_endereco" ColumnName="primeiro_endereco" />
+          <ScalarProperty Name="CEP" ColumnName="CEP" />
+          <ScalarProperty Name="cidade" ColumnName="cidade" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+          <ScalarProperty Name="data_cadastro" ColumnName="data_cadastro" />
+          <ScalarProperty Name="data_nascimento" ColumnName="data_nascimento" />
+          <ScalarProperty Name="funcao" ColumnName="funcao" />
+          <ScalarProperty Name="orgao_expedidor" ColumnName="orgao_expedidor" />
+          <ScalarProperty Name="numero_identidade" ColumnName="numero_identidade" />
+          <ScalarProperty Name="tipo_documento" ColumnName="tipo_documento" />
+          <ScalarProperty Name="CPF" ColumnName="CPF" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="id_hospede" ColumnName="id_hospede" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="perfil">
+      <EntityTypeMapping TypeName="db_pim_hmlModel.perfil">
+        <MappingFragment StoreEntitySet="perfil">
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="admin" ColumnName="admin" />
+          <ScalarProperty Name="relatorios" ColumnName="relatorios" />
+          <ScalarProperty Name="criar_hospede" ColumnName="criar_hospede" />
+          <ScalarProperty Name="criar_funcionario" ColumnName="criar_funcionario" />
+          <ScalarProperty Name="criar_reserva" ColumnName="criar_reserva" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="id_perfil" ColumnName="id_perfil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="quarto">
+      <EntityTypeMapping TypeName="db_pim_hmlModel.quarto">
+        <MappingFragment StoreEntitySet="quarto">
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="valor_meia" ColumnName="valor_meia" />
+          <ScalarProperty Name="valor_diaria" ColumnName="valor_diaria" />
+          <ScalarProperty Name="cama_solteiro" ColumnName="cama_solteiro" />
+          <ScalarProperty Name="cama_casal" ColumnName="cama_casal" />
+          <ScalarProperty Name="andar" ColumnName="andar" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="id_quarto" ColumnName="id_quarto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="registro_pagamento">
+      <EntityTypeMapping TypeName="db_pim_hmlModel.registro_pagamento">
+        <MappingFragment StoreEntitySet="registro_pagamento">
+          <ScalarProperty Name="data_pagamento" ColumnName="data_pagamento" />
+          <ScalarProperty Name="data_cadastro" ColumnName="data_cadastro" />
+          <ScalarProperty Name="registro_pago" ColumnName="registro_pago" />
+          <ScalarProperty Name="estorno" ColumnName="estorno" />
+          <ScalarProperty Name="parcelas" ColumnName="parcelas" />
+          <ScalarProperty Name="tipo_pagamento" ColumnName="tipo_pagamento" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
+          <ScalarProperty Name="id_pagamento" ColumnName="id_pagamento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reserva">
+      <EntityTypeMapping TypeName="db_pim_hmlModel.reserva">
+        <MappingFragment StoreEntitySet="reserva">
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="data_cancelamento" ColumnName="data_cancelamento" />
+          <ScalarProperty Name="data_checkOut" ColumnName="data_checkOut" />
+          <ScalarProperty Name="data_checkIn" ColumnName="data_checkIn" />
+          <ScalarProperty Name="data_fim" ColumnName="data_fim" />
+          <ScalarProperty Name="data_inicio" ColumnName="data_inicio" />
+          <ScalarProperty Name="data_cadastro" ColumnName="data_cadastro" />
+          <ScalarProperty Name="meio_transporte" ColumnName="meio_transporte" />
+          <ScalarProperty Name="motivo_viagem" ColumnName="motivo_viagem" />
+          <ScalarProperty Name="proximo_destino" ColumnName="proximo_destino" />
+          <ScalarProperty Name="ultimo_destino" ColumnName="ultimo_destino" />
+          <ScalarProperty Name="id_funcionario" ColumnName="id_funcionario" />
+          <ScalarProperty Name="id_usuarioCheckOut" ColumnName="id_usuarioCheckOut" />
+          <ScalarProperty Name="id_usuarioCheckIn" ColumnName="id_usuarioCheckIn" />
+          <ScalarProperty Name="id_usuarioCadastro" ColumnName="id_usuarioCadastro" />
+          <ScalarProperty Name="id_quarto" ColumnName="id_quarto" />
+          <ScalarProperty Name="id_hospede" ColumnName="id_hospede" />
+          <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario_hospede">
+      <EntityTypeMapping TypeName="db_pim_hmlModel.usuario_hospede">
+        <MappingFragment StoreEntitySet="usuario_hospede">
+          <ScalarProperty Name="ultimo_acesso" ColumnName="ultimo_acesso" />
+          <ScalarProperty Name="primeiro_acesso" ColumnName="primeiro_acesso" />
+          <ScalarProperty Name="data_cadastro" ColumnName="data_cadastro" />
+          <ScalarProperty Name="senha" ColumnName="senha" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="id_hospede" ColumnName="id_hospede" />
+          <ScalarProperty Name="id_usuarioHospede" ColumnName="id_usuarioHospede" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario_sistema">
+      <EntityTypeMapping TypeName="db_pim_hmlModel.usuario_sistema">
+        <MappingFragment StoreEntitySet="usuario_sistema">
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="id_perfil" ColumnName="id_perfil" />
+          <ScalarProperty Name="senha" ColumnName="senha" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="id_usuarioSistema" ColumnName="id_usuarioSistema" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="acompanhante">
+      <EntityTypeMapping TypeName="db_pim_hmlModel.acompanhante">
+        <MappingFragment StoreEntitySet="acompanhante">
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="data_nascimento" ColumnName="data_nascimento" />
+          <ScalarProperty Name="numero_identidade" ColumnName="numero_identidade" />
+          <ScalarProperty Name="tipo_identidade" ColumnName="tipo_identidade" />
+          <ScalarProperty Name="CPF" ColumnName="CPF" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="id_quarto" ColumnName="id_quarto" />
+          <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="database_firewall_rules">
+      <EntityTypeMapping TypeName="db_pim_hmlModel.database_firewall_rules">
+        <MappingFragment StoreEntitySet="database_firewall_rules">
+          <ScalarProperty Name="modify_date" ColumnName="modify_date" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="end_ip_address" ColumnName="end_ip_address" />
+          <ScalarProperty Name="start_ip_address" ColumnName="start_ip_address" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

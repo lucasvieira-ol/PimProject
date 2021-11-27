@@ -1,0 +1,1006 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="db_pim_hmlModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'db_pim_hml.dbo.acompanhante' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="acompanhante">
+          <Key>
+            <PropertyRef Name="id_reserva" />
+            <PropertyRef Name="id_quarto" />
+            <PropertyRef Name="nome" />
+            <PropertyRef Name="tipo_identidade" />
+            <PropertyRef Name="numero_identidade" />
+            <PropertyRef Name="data_nascimento" />
+            <PropertyRef Name="email" />
+            <PropertyRef Name="ativo" />
+          </Key>
+          <Property Name="id_reserva" Type="int" Nullable="false" />
+          <Property Name="id_quarto" Type="int" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="CPF" Type="varchar" MaxLength="11" />
+          <Property Name="tipo_identidade" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="numero_identidade" Type="varchar" MaxLength="24" Nullable="false" />
+          <Property Name="data_nascimento" Type="datetime" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="ativo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="funcionario">
+          <Key>
+            <PropertyRef Name="id_funcionario" />
+          </Key>
+          <Property Name="id_funcionario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="matricula" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="funcao" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="data_cadastro" Type="datetime" Nullable="false" />
+          <Property Name="data_admissao" Type="datetime" Nullable="false" />
+          <Property Name="data_demissao" Type="datetime" />
+          <Property Name="ativo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="hospede">
+          <Key>
+            <PropertyRef Name="id_hospede" />
+          </Key>
+          <Property Name="id_hospede" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="CPF" Type="varchar" MaxLength="11" />
+          <Property Name="tipo_documento" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="numero_identidade" Type="varchar" MaxLength="24" Nullable="false" />
+          <Property Name="orgao_expedidor" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="funcao" Type="varchar" MaxLength="50" />
+          <Property Name="data_nascimento" Type="datetime" />
+          <Property Name="data_cadastro" Type="datetime" Nullable="false" />
+          <Property Name="pais" Type="varchar" MaxLength="30" />
+          <Property Name="estado" Type="varchar" MaxLength="30" />
+          <Property Name="cidade" Type="varchar" MaxLength="30" />
+          <Property Name="CEP" Type="varchar" MaxLength="12" />
+          <Property Name="primeiro_endereco" Type="varchar" MaxLength="70" />
+          <Property Name="segundo_endereco" Type="varchar" MaxLength="30" />
+          <Property Name="primeiro_telefone" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="segundo_telefone" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="perfil">
+          <Key>
+            <PropertyRef Name="id_perfil" />
+          </Key>
+          <Property Name="id_perfil" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="criar_reserva" Type="bit" Nullable="false" />
+          <Property Name="criar_funcionario" Type="bit" Nullable="false" />
+          <Property Name="criar_hospede" Type="bit" Nullable="false" />
+          <Property Name="relatorios" Type="bit" Nullable="false" />
+          <Property Name="admin" Type="bit" Nullable="false" />
+          <Property Name="ativo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="quarto">
+          <Key>
+            <PropertyRef Name="id_quarto" />
+          </Key>
+          <Property Name="id_quarto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="andar" Type="int" Nullable="false" />
+          <Property Name="cama_casal" Type="int" Nullable="false" />
+          <Property Name="cama_solteiro" Type="int" Nullable="false" />
+          <Property Name="valor_diaria" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="valor_meia" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="ativo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="registro_pagamento">
+          <Key>
+            <PropertyRef Name="id_pagamento" />
+          </Key>
+          <Property Name="id_pagamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_reserva" Type="int" Nullable="false" />
+          <Property Name="descricao" Type="varchar" MaxLength="60" />
+          <Property Name="valor" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="tipo_pagamento" Type="varchar" MaxLength="8" />
+          <Property Name="parcelas" Type="int" />
+          <Property Name="estorno" Type="bit" Nullable="false" />
+          <Property Name="registro_pago" Type="bit" Nullable="false" />
+          <Property Name="data_cadastro" Type="datetime" Nullable="false" />
+          <Property Name="data_pagamento" Type="datetime" />
+        </EntityType>
+        <EntityType Name="reserva">
+          <Key>
+            <PropertyRef Name="id_reserva" />
+          </Key>
+          <Property Name="id_reserva" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_hospede" Type="int" Nullable="false" />
+          <Property Name="id_quarto" Type="int" Nullable="false" />
+          <Property Name="id_usuarioCadastro" Type="int" />
+          <Property Name="id_usuarioCheckIn" Type="int" />
+          <Property Name="id_usuarioCheckOut" Type="int" />
+          <Property Name="id_funcionario" Type="int" />
+          <Property Name="ultimo_destino" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="proximo_destino" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="motivo_viagem" Type="varchar" MaxLength="20" />
+          <Property Name="meio_transporte" Type="varchar" MaxLength="20" />
+          <Property Name="data_cadastro" Type="datetime" Nullable="false" />
+          <Property Name="data_inicio" Type="datetime" Nullable="false" />
+          <Property Name="data_fim" Type="datetime" Nullable="false" />
+          <Property Name="data_checkIn" Type="datetime" />
+          <Property Name="data_checkOut" Type="datetime" />
+          <Property Name="data_cancelamento" Type="datetime" />
+          <Property Name="ativo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usuario_cartao">
+          <Key>
+            <PropertyRef Name="idCartao" />
+          </Key>
+          <Property Name="idCartao" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_usuarioHospede" Type="int" Nullable="false" />
+          <Property Name="nome_cartao" Type="varchar" MaxLength="60" />
+          <Property Name="numero_cartao" Type="varchar" MaxLength="16" />
+          <Property Name="data_validade" Type="datetime" />
+        </EntityType>
+        <EntityType Name="usuario_hospede">
+          <Key>
+            <PropertyRef Name="id_usuarioHospede" />
+          </Key>
+          <Property Name="id_usuarioHospede" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_hospede" Type="int" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="senha" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="data_cadastro" Type="datetime" Nullable="false" />
+          <Property Name="primeiro_acesso" Type="datetime" />
+          <Property Name="ultimo_acesso" Type="datetime" />
+        </EntityType>
+        <EntityType Name="usuario_sistema">
+          <Key>
+            <PropertyRef Name="id_usuarioSistema" />
+          </Key>
+          <Property Name="id_usuarioSistema" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="senha" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="id_perfil" Type="int" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="20" />
+          <Property Name="ativo" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'db_pim_hml.sys.database_firewall_rules' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="database_firewall_rules">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="start_ip_address" />
+            <PropertyRef Name="end_ip_address" />
+            <PropertyRef Name="create_date" />
+            <PropertyRef Name="modify_date" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="start_ip_address" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="end_ip_address" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="create_date" Type="datetime" Nullable="false" />
+          <Property Name="modify_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__acompanha__id_qu__7A672E12">
+          <End Role="quarto" Type="Self.quarto" Multiplicity="1" />
+          <End Role="acompanhante" Type="Self.acompanhante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="quarto">
+              <PropertyRef Name="id_quarto" />
+            </Principal>
+            <Dependent Role="acompanhante">
+              <PropertyRef Name="id_quarto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__acompanha__id_re__797309D9">
+          <End Role="reserva" Type="Self.reserva" Multiplicity="1" />
+          <End Role="acompanhante" Type="Self.acompanhante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="reserva">
+              <PropertyRef Name="id_reserva" />
+            </Principal>
+            <Dependent Role="acompanhante">
+              <PropertyRef Name="id_reserva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__registro___id_re__7D439ABD">
+          <End Role="reserva" Type="Self.reserva" Multiplicity="1" />
+          <End Role="registro_pagamento" Type="Self.registro_pagamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="reserva">
+              <PropertyRef Name="id_reserva" />
+            </Principal>
+            <Dependent Role="registro_pagamento">
+              <PropertyRef Name="id_reserva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reserva__id_func__778AC167">
+          <End Role="funcionario" Type="Self.funcionario" Multiplicity="0..1" />
+          <End Role="reserva" Type="Self.reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="funcionario">
+              <PropertyRef Name="id_funcionario" />
+            </Principal>
+            <Dependent Role="reserva">
+              <PropertyRef Name="id_funcionario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reserva__id_hosp__72C60C4A">
+          <End Role="hospede" Type="Self.hospede" Multiplicity="1" />
+          <End Role="reserva" Type="Self.reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hospede">
+              <PropertyRef Name="id_hospede" />
+            </Principal>
+            <Dependent Role="reserva">
+              <PropertyRef Name="id_hospede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reserva__id_quar__73BA3083">
+          <End Role="quarto" Type="Self.quarto" Multiplicity="1" />
+          <End Role="reserva" Type="Self.reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="quarto">
+              <PropertyRef Name="id_quarto" />
+            </Principal>
+            <Dependent Role="reserva">
+              <PropertyRef Name="id_quarto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reserva__id_usua__74AE54BC">
+          <End Role="usuario_sistema" Type="Self.usuario_sistema" Multiplicity="0..1" />
+          <End Role="reserva" Type="Self.reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario_sistema">
+              <PropertyRef Name="id_usuarioSistema" />
+            </Principal>
+            <Dependent Role="reserva">
+              <PropertyRef Name="id_usuarioCadastro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reserva__id_usua__75A278F5">
+          <End Role="usuario_sistema" Type="Self.usuario_sistema" Multiplicity="0..1" />
+          <End Role="reserva" Type="Self.reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario_sistema">
+              <PropertyRef Name="id_usuarioSistema" />
+            </Principal>
+            <Dependent Role="reserva">
+              <PropertyRef Name="id_usuarioCheckIn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reserva__id_usua__76969D2E">
+          <End Role="usuario_sistema" Type="Self.usuario_sistema" Multiplicity="0..1" />
+          <End Role="reserva" Type="Self.reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario_sistema">
+              <PropertyRef Name="id_usuarioSistema" />
+            </Principal>
+            <Dependent Role="reserva">
+              <PropertyRef Name="id_usuarioCheckOut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__usuario_c__id_us__0A9D95DB">
+          <End Role="usuario_hospede" Type="Self.usuario_hospede" Multiplicity="1" />
+          <End Role="usuario_cartao" Type="Self.usuario_cartao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario_hospede">
+              <PropertyRef Name="id_usuarioHospede" />
+            </Principal>
+            <Dependent Role="usuario_cartao">
+              <PropertyRef Name="id_usuarioHospede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__usuario_h__id_ho__619B8048">
+          <End Role="hospede" Type="Self.hospede" Multiplicity="1" />
+          <End Role="usuario_hospede" Type="Self.usuario_hospede" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hospede">
+              <PropertyRef Name="id_hospede" />
+            </Principal>
+            <Dependent Role="usuario_hospede">
+              <PropertyRef Name="id_hospede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__usuario_s__id_pe__6D0D32F4">
+          <End Role="perfil" Type="Self.perfil" Multiplicity="1" />
+          <End Role="usuario_sistema" Type="Self.usuario_sistema" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="perfil">
+              <PropertyRef Name="id_perfil" />
+            </Principal>
+            <Dependent Role="usuario_sistema">
+              <PropertyRef Name="id_perfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="db_pim_hmlModelStoreContainer">
+          <EntitySet Name="funcionario" EntityType="Self.funcionario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="hospede" EntityType="Self.hospede" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="perfil" EntityType="Self.perfil" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="quarto" EntityType="Self.quarto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="registro_pagamento" EntityType="Self.registro_pagamento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="reserva" EntityType="Self.reserva" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuario_cartao" EntityType="Self.usuario_cartao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuario_hospede" EntityType="Self.usuario_hospede" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuario_sistema" EntityType="Self.usuario_sistema" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="acompanhante" EntityType="Self.acompanhante" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [acompanhante].[id_reserva] AS [id_reserva], 
+    [acompanhante].[id_quarto] AS [id_quarto], 
+    [acompanhante].[nome] AS [nome], 
+    [acompanhante].[CPF] AS [CPF], 
+    [acompanhante].[tipo_identidade] AS [tipo_identidade], 
+    [acompanhante].[numero_identidade] AS [numero_identidade], 
+    [acompanhante].[data_nascimento] AS [data_nascimento], 
+    [acompanhante].[email] AS [email], 
+    [acompanhante].[ativo] AS [ativo]
+    FROM [dbo].[acompanhante] AS [acompanhante]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" store:Type="Views" store:Schema="sys">
+            <DefiningQuery>SELECT 
+    [database_firewall_rules].[id] AS [id], 
+    [database_firewall_rules].[name] AS [name], 
+    [database_firewall_rules].[start_ip_address] AS [start_ip_address], 
+    [database_firewall_rules].[end_ip_address] AS [end_ip_address], 
+    [database_firewall_rules].[create_date] AS [create_date], 
+    [database_firewall_rules].[modify_date] AS [modify_date]
+    FROM [sys].[database_firewall_rules] AS [database_firewall_rules]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__acompanha__id_qu__7A672E12" Association="Self.FK__acompanha__id_qu__7A672E12">
+            <End Role="quarto" EntitySet="quarto" />
+            <End Role="acompanhante" EntitySet="acompanhante" />
+          </AssociationSet>
+          <AssociationSet Name="FK__acompanha__id_re__797309D9" Association="Self.FK__acompanha__id_re__797309D9">
+            <End Role="reserva" EntitySet="reserva" />
+            <End Role="acompanhante" EntitySet="acompanhante" />
+          </AssociationSet>
+          <AssociationSet Name="FK__registro___id_re__7D439ABD" Association="Self.FK__registro___id_re__7D439ABD">
+            <End Role="reserva" EntitySet="reserva" />
+            <End Role="registro_pagamento" EntitySet="registro_pagamento" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reserva__id_func__778AC167" Association="Self.FK__reserva__id_func__778AC167">
+            <End Role="funcionario" EntitySet="funcionario" />
+            <End Role="reserva" EntitySet="reserva" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reserva__id_hosp__72C60C4A" Association="Self.FK__reserva__id_hosp__72C60C4A">
+            <End Role="hospede" EntitySet="hospede" />
+            <End Role="reserva" EntitySet="reserva" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reserva__id_quar__73BA3083" Association="Self.FK__reserva__id_quar__73BA3083">
+            <End Role="quarto" EntitySet="quarto" />
+            <End Role="reserva" EntitySet="reserva" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reserva__id_usua__74AE54BC" Association="Self.FK__reserva__id_usua__74AE54BC">
+            <End Role="usuario_sistema" EntitySet="usuario_sistema" />
+            <End Role="reserva" EntitySet="reserva" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reserva__id_usua__75A278F5" Association="Self.FK__reserva__id_usua__75A278F5">
+            <End Role="usuario_sistema" EntitySet="usuario_sistema" />
+            <End Role="reserva" EntitySet="reserva" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reserva__id_usua__76969D2E" Association="Self.FK__reserva__id_usua__76969D2E">
+            <End Role="usuario_sistema" EntitySet="usuario_sistema" />
+            <End Role="reserva" EntitySet="reserva" />
+          </AssociationSet>
+          <AssociationSet Name="FK__usuario_c__id_us__0A9D95DB" Association="Self.FK__usuario_c__id_us__0A9D95DB">
+            <End Role="usuario_hospede" EntitySet="usuario_hospede" />
+            <End Role="usuario_cartao" EntitySet="usuario_cartao" />
+          </AssociationSet>
+          <AssociationSet Name="FK__usuario_h__id_ho__619B8048" Association="Self.FK__usuario_h__id_ho__619B8048">
+            <End Role="hospede" EntitySet="hospede" />
+            <End Role="usuario_hospede" EntitySet="usuario_hospede" />
+          </AssociationSet>
+          <AssociationSet Name="FK__usuario_s__id_pe__6D0D32F4" Association="Self.FK__usuario_s__id_pe__6D0D32F4">
+            <End Role="perfil" EntitySet="perfil" />
+            <End Role="usuario_sistema" EntitySet="usuario_sistema" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db_pim_hmlModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="db_pim_hmlEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="funcionario" EntityType="db_pim_hmlModel.funcionario" />
+          <EntitySet Name="hospede" EntityType="db_pim_hmlModel.hospede" />
+          <EntitySet Name="perfil" EntityType="db_pim_hmlModel.perfil" />
+          <EntitySet Name="quarto" EntityType="db_pim_hmlModel.quarto" />
+          <EntitySet Name="registro_pagamento" EntityType="db_pim_hmlModel.registro_pagamento" />
+          <EntitySet Name="reserva" EntityType="db_pim_hmlModel.reserva" />
+          <EntitySet Name="usuario_cartao" EntityType="db_pim_hmlModel.usuario_cartao" />
+          <EntitySet Name="usuario_hospede" EntityType="db_pim_hmlModel.usuario_hospede" />
+          <EntitySet Name="usuario_sistema" EntityType="db_pim_hmlModel.usuario_sistema" />
+          <EntitySet Name="acompanhante" EntityType="db_pim_hmlModel.acompanhante" />
+          <EntitySet Name="database_firewall_rules" EntityType="db_pim_hmlModel.database_firewall_rules" />
+          <AssociationSet Name="FK__reserva__id_func__778AC167" Association="db_pim_hmlModel.FK__reserva__id_func__778AC167">
+            <End Role="funcionario" EntitySet="funcionario" />
+            <End Role="reserva" EntitySet="reserva" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reserva__id_hosp__72C60C4A" Association="db_pim_hmlModel.FK__reserva__id_hosp__72C60C4A">
+            <End Role="hospede" EntitySet="hospede" />
+            <End Role="reserva" EntitySet="reserva" />
+          </AssociationSet>
+          <AssociationSet Name="FK__usuario_h__id_ho__619B8048" Association="db_pim_hmlModel.FK__usuario_h__id_ho__619B8048">
+            <End Role="hospede" EntitySet="hospede" />
+            <End Role="usuario_hospede" EntitySet="usuario_hospede" />
+          </AssociationSet>
+          <AssociationSet Name="FK__usuario_s__id_pe__6D0D32F4" Association="db_pim_hmlModel.FK__usuario_s__id_pe__6D0D32F4">
+            <End Role="perfil" EntitySet="perfil" />
+            <End Role="usuario_sistema" EntitySet="usuario_sistema" />
+          </AssociationSet>
+          <AssociationSet Name="FK__acompanha__id_qu__7A672E12" Association="db_pim_hmlModel.FK__acompanha__id_qu__7A672E12">
+            <End Role="quarto" EntitySet="quarto" />
+            <End Role="acompanhante" EntitySet="acompanhante" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reserva__id_quar__73BA3083" Association="db_pim_hmlModel.FK__reserva__id_quar__73BA3083">
+            <End Role="quarto" EntitySet="quarto" />
+            <End Role="reserva" EntitySet="reserva" />
+          </AssociationSet>
+          <AssociationSet Name="FK__registro___id_re__7D439ABD" Association="db_pim_hmlModel.FK__registro___id_re__7D439ABD">
+            <End Role="reserva" EntitySet="reserva" />
+            <End Role="registro_pagamento" EntitySet="registro_pagamento" />
+          </AssociationSet>
+          <AssociationSet Name="FK__acompanha__id_re__797309D9" Association="db_pim_hmlModel.FK__acompanha__id_re__797309D9">
+            <End Role="reserva" EntitySet="reserva" />
+            <End Role="acompanhante" EntitySet="acompanhante" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reserva__id_usua__74AE54BC" Association="db_pim_hmlModel.FK__reserva__id_usua__74AE54BC">
+            <End Role="usuario_sistema" EntitySet="usuario_sistema" />
+            <End Role="reserva" EntitySet="reserva" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reserva__id_usua__75A278F5" Association="db_pim_hmlModel.FK__reserva__id_usua__75A278F5">
+            <End Role="usuario_sistema" EntitySet="usuario_sistema" />
+            <End Role="reserva" EntitySet="reserva" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reserva__id_usua__76969D2E" Association="db_pim_hmlModel.FK__reserva__id_usua__76969D2E">
+            <End Role="usuario_sistema" EntitySet="usuario_sistema" />
+            <End Role="reserva" EntitySet="reserva" />
+          </AssociationSet>
+          <AssociationSet Name="FK__usuario_c__id_us__0A9D95DB" Association="db_pim_hmlModel.FK__usuario_c__id_us__0A9D95DB">
+            <End Role="usuario_hospede" EntitySet="usuario_hospede" />
+            <End Role="usuario_cartao" EntitySet="usuario_cartao" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="funcionario">
+          <Key>
+            <PropertyRef Name="id_funcionario" />
+          </Key>
+          <Property Name="id_funcionario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="matricula" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="funcao" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="data_cadastro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="data_admissao" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="data_demissao" Type="DateTime" Precision="3" />
+          <Property Name="ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="reserva" Relationship="db_pim_hmlModel.FK__reserva__id_func__778AC167" FromRole="funcionario" ToRole="reserva" />
+        </EntityType>
+        <EntityType Name="hospede">
+          <Key>
+            <PropertyRef Name="id_hospede" />
+          </Key>
+          <Property Name="id_hospede" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="CPF" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="tipo_documento" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="numero_identidade" Type="String" Nullable="false" MaxLength="24" FixedLength="false" Unicode="false" />
+          <Property Name="orgao_expedidor" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="funcao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="data_nascimento" Type="DateTime" Precision="3" />
+          <Property Name="data_cadastro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="pais" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="cidade" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CEP" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="primeiro_endereco" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="segundo_endereco" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="primeiro_telefone" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="segundo_telefone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="reserva" Relationship="db_pim_hmlModel.FK__reserva__id_hosp__72C60C4A" FromRole="hospede" ToRole="reserva" />
+          <NavigationProperty Name="usuario_hospede" Relationship="db_pim_hmlModel.FK__usuario_h__id_ho__619B8048" FromRole="hospede" ToRole="usuario_hospede" />
+        </EntityType>
+        <EntityType Name="perfil">
+          <Key>
+            <PropertyRef Name="id_perfil" />
+          </Key>
+          <Property Name="id_perfil" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="criar_reserva" Type="Boolean" Nullable="false" />
+          <Property Name="criar_funcionario" Type="Boolean" Nullable="false" />
+          <Property Name="criar_hospede" Type="Boolean" Nullable="false" />
+          <Property Name="relatorios" Type="Boolean" Nullable="false" />
+          <Property Name="admin" Type="Boolean" Nullable="false" />
+          <Property Name="ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="usuario_sistema" Relationship="db_pim_hmlModel.FK__usuario_s__id_pe__6D0D32F4" FromRole="perfil" ToRole="usuario_sistema" />
+        </EntityType>
+        <EntityType Name="quarto">
+          <Key>
+            <PropertyRef Name="id_quarto" />
+          </Key>
+          <Property Name="id_quarto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="andar" Type="Int32" Nullable="false" />
+          <Property Name="cama_casal" Type="Int32" Nullable="false" />
+          <Property Name="cama_solteiro" Type="Int32" Nullable="false" />
+          <Property Name="valor_diaria" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="valor_meia" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="acompanhante" Relationship="db_pim_hmlModel.FK__acompanha__id_qu__7A672E12" FromRole="quarto" ToRole="acompanhante" />
+          <NavigationProperty Name="reserva" Relationship="db_pim_hmlModel.FK__reserva__id_quar__73BA3083" FromRole="quarto" ToRole="reserva" />
+        </EntityType>
+        <EntityType Name="registro_pagamento">
+          <Key>
+            <PropertyRef Name="id_pagamento" />
+          </Key>
+          <Property Name="id_pagamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_reserva" Type="Int32" Nullable="false" />
+          <Property Name="descricao" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="valor" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="tipo_pagamento" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="parcelas" Type="Int32" />
+          <Property Name="estorno" Type="Boolean" Nullable="false" />
+          <Property Name="registro_pago" Type="Boolean" Nullable="false" />
+          <Property Name="data_cadastro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="data_pagamento" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="reserva" Relationship="db_pim_hmlModel.FK__registro___id_re__7D439ABD" FromRole="registro_pagamento" ToRole="reserva" />
+        </EntityType>
+        <EntityType Name="reserva">
+          <Key>
+            <PropertyRef Name="id_reserva" />
+          </Key>
+          <Property Name="id_reserva" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_hospede" Type="Int32" Nullable="false" />
+          <Property Name="id_quarto" Type="Int32" Nullable="false" />
+          <Property Name="id_usuarioCadastro" Type="Int32" />
+          <Property Name="id_usuarioCheckIn" Type="Int32" />
+          <Property Name="id_usuarioCheckOut" Type="Int32" />
+          <Property Name="id_funcionario" Type="Int32" />
+          <Property Name="ultimo_destino" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="proximo_destino" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="motivo_viagem" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="meio_transporte" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="data_cadastro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="data_inicio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="data_fim" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="data_checkIn" Type="DateTime" Precision="3" />
+          <Property Name="data_checkOut" Type="DateTime" Precision="3" />
+          <Property Name="data_cancelamento" Type="DateTime" Precision="3" />
+          <Property Name="ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="funcionario" Relationship="db_pim_hmlModel.FK__reserva__id_func__778AC167" FromRole="reserva" ToRole="funcionario" />
+          <NavigationProperty Name="hospede" Relationship="db_pim_hmlModel.FK__reserva__id_hosp__72C60C4A" FromRole="reserva" ToRole="hospede" />
+          <NavigationProperty Name="quarto" Relationship="db_pim_hmlModel.FK__reserva__id_quar__73BA3083" FromRole="reserva" ToRole="quarto" />
+          <NavigationProperty Name="registro_pagamento" Relationship="db_pim_hmlModel.FK__registro___id_re__7D439ABD" FromRole="reserva" ToRole="registro_pagamento" />
+          <NavigationProperty Name="acompanhante" Relationship="db_pim_hmlModel.FK__acompanha__id_re__797309D9" FromRole="reserva" ToRole="acompanhante" />
+          <NavigationProperty Name="usuario_sistema" Relationship="db_pim_hmlModel.FK__reserva__id_usua__74AE54BC" FromRole="reserva" ToRole="usuario_sistema" />
+          <NavigationProperty Name="usuario_sistema1" Relationship="db_pim_hmlModel.FK__reserva__id_usua__75A278F5" FromRole="reserva" ToRole="usuario_sistema" />
+          <NavigationProperty Name="usuario_sistema2" Relationship="db_pim_hmlModel.FK__reserva__id_usua__76969D2E" FromRole="reserva" ToRole="usuario_sistema" />
+        </EntityType>
+        <EntityType Name="usuario_cartao">
+          <Key>
+            <PropertyRef Name="idCartao" />
+          </Key>
+          <Property Name="idCartao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_usuarioHospede" Type="Int32" Nullable="false" />
+          <Property Name="nome_cartao" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="numero_cartao" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="data_validade" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="usuario_hospede" Relationship="db_pim_hmlModel.FK__usuario_c__id_us__0A9D95DB" FromRole="usuario_cartao" ToRole="usuario_hospede" />
+        </EntityType>
+        <EntityType Name="usuario_hospede">
+          <Key>
+            <PropertyRef Name="id_usuarioHospede" />
+          </Key>
+          <Property Name="id_usuarioHospede" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_hospede" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="senha" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="data_cadastro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="primeiro_acesso" Type="DateTime" Precision="3" />
+          <Property Name="ultimo_acesso" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="hospede" Relationship="db_pim_hmlModel.FK__usuario_h__id_ho__619B8048" FromRole="usuario_hospede" ToRole="hospede" />
+          <NavigationProperty Name="usuario_cartao" Relationship="db_pim_hmlModel.FK__usuario_c__id_us__0A9D95DB" FromRole="usuario_hospede" ToRole="usuario_cartao" />
+        </EntityType>
+        <EntityType Name="usuario_sistema">
+          <Key>
+            <PropertyRef Name="id_usuarioSistema" />
+          </Key>
+          <Property Name="id_usuarioSistema" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="senha" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="id_perfil" Type="Int32" Nullable="false" />
+          <Property Name="nome" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="perfil" Relationship="db_pim_hmlModel.FK__usuario_s__id_pe__6D0D32F4" FromRole="usuario_sistema" ToRole="perfil" />
+          <NavigationProperty Name="reserva" Relationship="db_pim_hmlModel.FK__reserva__id_usua__74AE54BC" FromRole="usuario_sistema" ToRole="reserva" />
+          <NavigationProperty Name="reserva1" Relationship="db_pim_hmlModel.FK__reserva__id_usua__75A278F5" FromRole="usuario_sistema" ToRole="reserva" />
+          <NavigationProperty Name="reserva2" Relationship="db_pim_hmlModel.FK__reserva__id_usua__76969D2E" FromRole="usuario_sistema" ToRole="reserva" />
+        </EntityType>
+        <EntityType Name="acompanhante">
+          <Key>
+            <PropertyRef Name="id_reserva" />
+            <PropertyRef Name="id_quarto" />
+            <PropertyRef Name="nome" />
+            <PropertyRef Name="tipo_identidade" />
+            <PropertyRef Name="numero_identidade" />
+            <PropertyRef Name="data_nascimento" />
+            <PropertyRef Name="email" />
+            <PropertyRef Name="ativo" />
+          </Key>
+          <Property Name="id_reserva" Type="Int32" Nullable="false" />
+          <Property Name="id_quarto" Type="Int32" Nullable="false" />
+          <Property Name="nome" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="CPF" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="tipo_identidade" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="numero_identidade" Type="String" Nullable="false" MaxLength="24" FixedLength="false" Unicode="false" />
+          <Property Name="data_nascimento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="quarto" Relationship="db_pim_hmlModel.FK__acompanha__id_qu__7A672E12" FromRole="acompanhante" ToRole="quarto" />
+          <NavigationProperty Name="reserva" Relationship="db_pim_hmlModel.FK__acompanha__id_re__797309D9" FromRole="acompanhante" ToRole="reserva" />
+        </EntityType>
+        <EntityType Name="database_firewall_rules">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="start_ip_address" />
+            <PropertyRef Name="end_ip_address" />
+            <PropertyRef Name="create_date" />
+            <PropertyRef Name="modify_date" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="start_ip_address" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="end_ip_address" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <Association Name="FK__reserva__id_func__778AC167">
+          <End Type="db_pim_hmlModel.funcionario" Role="funcionario" Multiplicity="0..1" />
+          <End Type="db_pim_hmlModel.reserva" Role="reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="funcionario">
+              <PropertyRef Name="id_funcionario" />
+            </Principal>
+            <Dependent Role="reserva">
+              <PropertyRef Name="id_funcionario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reserva__id_hosp__72C60C4A">
+          <End Type="db_pim_hmlModel.hospede" Role="hospede" Multiplicity="1" />
+          <End Type="db_pim_hmlModel.reserva" Role="reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hospede">
+              <PropertyRef Name="id_hospede" />
+            </Principal>
+            <Dependent Role="reserva">
+              <PropertyRef Name="id_hospede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__usuario_h__id_ho__619B8048">
+          <End Type="db_pim_hmlModel.hospede" Role="hospede" Multiplicity="1" />
+          <End Type="db_pim_hmlModel.usuario_hospede" Role="usuario_hospede" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hospede">
+              <PropertyRef Name="id_hospede" />
+            </Principal>
+            <Dependent Role="usuario_hospede">
+              <PropertyRef Name="id_hospede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__usuario_s__id_pe__6D0D32F4">
+          <End Type="db_pim_hmlModel.perfil" Role="perfil" Multiplicity="1" />
+          <End Type="db_pim_hmlModel.usuario_sistema" Role="usuario_sistema" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="perfil">
+              <PropertyRef Name="id_perfil" />
+            </Principal>
+            <Dependent Role="usuario_sistema">
+              <PropertyRef Name="id_perfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__acompanha__id_qu__7A672E12">
+          <End Type="db_pim_hmlModel.quarto" Role="quarto" Multiplicity="1" />
+          <End Type="db_pim_hmlModel.acompanhante" Role="acompanhante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="quarto">
+              <PropertyRef Name="id_quarto" />
+            </Principal>
+            <Dependent Role="acompanhante">
+              <PropertyRef Name="id_quarto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reserva__id_quar__73BA3083">
+          <End Type="db_pim_hmlModel.quarto" Role="quarto" Multiplicity="1" />
+          <End Type="db_pim_hmlModel.reserva" Role="reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="quarto">
+              <PropertyRef Name="id_quarto" />
+            </Principal>
+            <Dependent Role="reserva">
+              <PropertyRef Name="id_quarto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__registro___id_re__7D439ABD">
+          <End Type="db_pim_hmlModel.reserva" Role="reserva" Multiplicity="1" />
+          <End Type="db_pim_hmlModel.registro_pagamento" Role="registro_pagamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="reserva">
+              <PropertyRef Name="id_reserva" />
+            </Principal>
+            <Dependent Role="registro_pagamento">
+              <PropertyRef Name="id_reserva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__acompanha__id_re__797309D9">
+          <End Type="db_pim_hmlModel.reserva" Role="reserva" Multiplicity="1" />
+          <End Type="db_pim_hmlModel.acompanhante" Role="acompanhante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="reserva">
+              <PropertyRef Name="id_reserva" />
+            </Principal>
+            <Dependent Role="acompanhante">
+              <PropertyRef Name="id_reserva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reserva__id_usua__74AE54BC">
+          <End Type="db_pim_hmlModel.usuario_sistema" Role="usuario_sistema" Multiplicity="0..1" />
+          <End Type="db_pim_hmlModel.reserva" Role="reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario_sistema">
+              <PropertyRef Name="id_usuarioSistema" />
+            </Principal>
+            <Dependent Role="reserva">
+              <PropertyRef Name="id_usuarioCadastro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reserva__id_usua__75A278F5">
+          <End Type="db_pim_hmlModel.usuario_sistema" Role="usuario_sistema" Multiplicity="0..1" />
+          <End Type="db_pim_hmlModel.reserva" Role="reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario_sistema">
+              <PropertyRef Name="id_usuarioSistema" />
+            </Principal>
+            <Dependent Role="reserva">
+              <PropertyRef Name="id_usuarioCheckIn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reserva__id_usua__76969D2E">
+          <End Type="db_pim_hmlModel.usuario_sistema" Role="usuario_sistema" Multiplicity="0..1" />
+          <End Type="db_pim_hmlModel.reserva" Role="reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario_sistema">
+              <PropertyRef Name="id_usuarioSistema" />
+            </Principal>
+            <Dependent Role="reserva">
+              <PropertyRef Name="id_usuarioCheckOut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__usuario_c__id_us__0A9D95DB">
+          <End Type="db_pim_hmlModel.usuario_hospede" Role="usuario_hospede" Multiplicity="1" />
+          <End Type="db_pim_hmlModel.usuario_cartao" Role="usuario_cartao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario_hospede">
+              <PropertyRef Name="id_usuarioHospede" />
+            </Principal>
+            <Dependent Role="usuario_cartao">
+              <PropertyRef Name="id_usuarioHospede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db_pim_hmlModelStoreContainer" CdmEntityContainer="db_pim_hmlEntities">
+          <EntitySetMapping Name="funcionario">
+            <EntityTypeMapping TypeName="db_pim_hmlModel.funcionario">
+              <MappingFragment StoreEntitySet="funcionario">
+                <ScalarProperty Name="ativo" ColumnName="ativo" />
+                <ScalarProperty Name="data_demissao" ColumnName="data_demissao" />
+                <ScalarProperty Name="data_admissao" ColumnName="data_admissao" />
+                <ScalarProperty Name="data_cadastro" ColumnName="data_cadastro" />
+                <ScalarProperty Name="funcao" ColumnName="funcao" />
+                <ScalarProperty Name="matricula" ColumnName="matricula" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="id_funcionario" ColumnName="id_funcionario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hospede">
+            <EntityTypeMapping TypeName="db_pim_hmlModel.hospede">
+              <MappingFragment StoreEntitySet="hospede">
+                <ScalarProperty Name="segundo_telefone" ColumnName="segundo_telefone" />
+                <ScalarProperty Name="primeiro_telefone" ColumnName="primeiro_telefone" />
+                <ScalarProperty Name="segundo_endereco" ColumnName="segundo_endereco" />
+                <ScalarProperty Name="primeiro_endereco" ColumnName="primeiro_endereco" />
+                <ScalarProperty Name="CEP" ColumnName="CEP" />
+                <ScalarProperty Name="cidade" ColumnName="cidade" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="pais" ColumnName="pais" />
+                <ScalarProperty Name="data_cadastro" ColumnName="data_cadastro" />
+                <ScalarProperty Name="data_nascimento" ColumnName="data_nascimento" />
+                <ScalarProperty Name="funcao" ColumnName="funcao" />
+                <ScalarProperty Name="orgao_expedidor" ColumnName="orgao_expedidor" />
+                <ScalarProperty Name="numero_identidade" ColumnName="numero_identidade" />
+                <ScalarProperty Name="tipo_documento" ColumnName="tipo_documento" />
+                <ScalarProperty Name="CPF" ColumnName="CPF" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="id_hospede" ColumnName="id_hospede" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="perfil">
+            <EntityTypeMapping TypeName="db_pim_hmlModel.perfil">
+              <MappingFragment StoreEntitySet="perfil">
+                <ScalarProperty Name="ativo" ColumnName="ativo" />
+                <ScalarProperty Name="admin" ColumnName="admin" />
+                <ScalarProperty Name="relatorios" ColumnName="relatorios" />
+                <ScalarProperty Name="criar_hospede" ColumnName="criar_hospede" />
+                <ScalarProperty Name="criar_funcionario" ColumnName="criar_funcionario" />
+                <ScalarProperty Name="criar_reserva" ColumnName="criar_reserva" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="id_perfil" ColumnName="id_perfil" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="quarto">
+            <EntityTypeMapping TypeName="db_pim_hmlModel.quarto">
+              <MappingFragment StoreEntitySet="quarto">
+                <ScalarProperty Name="ativo" ColumnName="ativo" />
+                <ScalarProperty Name="valor_meia" ColumnName="valor_meia" />
+                <ScalarProperty Name="valor_diaria" ColumnName="valor_diaria" />
+                <ScalarProperty Name="cama_solteiro" ColumnName="cama_solteiro" />
+                <ScalarProperty Name="cama_casal" ColumnName="cama_casal" />
+                <ScalarProperty Name="andar" ColumnName="andar" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="id_quarto" ColumnName="id_quarto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="registro_pagamento">
+            <EntityTypeMapping TypeName="db_pim_hmlModel.registro_pagamento">
+              <MappingFragment StoreEntitySet="registro_pagamento">
+                <ScalarProperty Name="data_pagamento" ColumnName="data_pagamento" />
+                <ScalarProperty Name="data_cadastro" ColumnName="data_cadastro" />
+                <ScalarProperty Name="registro_pago" ColumnName="registro_pago" />
+                <ScalarProperty Name="estorno" ColumnName="estorno" />
+                <ScalarProperty Name="parcelas" ColumnName="parcelas" />
+                <ScalarProperty Name="tipo_pagamento" ColumnName="tipo_pagamento" />
+                <ScalarProperty Name="valor" ColumnName="valor" />
+                <ScalarProperty Name="descricao" ColumnName="descricao" />
+                <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
+                <ScalarProperty Name="id_pagamento" ColumnName="id_pagamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reserva">
+            <EntityTypeMapping TypeName="db_pim_hmlModel.reserva">
+              <MappingFragment StoreEntitySet="reserva">
+                <ScalarProperty Name="ativo" ColumnName="ativo" />
+                <ScalarProperty Name="data_cancelamento" ColumnName="data_cancelamento" />
+                <ScalarProperty Name="data_checkOut" ColumnName="data_checkOut" />
+                <ScalarProperty Name="data_checkIn" ColumnName="data_checkIn" />
+                <ScalarProperty Name="data_fim" ColumnName="data_fim" />
+                <ScalarProperty Name="data_inicio" ColumnName="data_inicio" />
+                <ScalarProperty Name="data_cadastro" ColumnName="data_cadastro" />
+                <ScalarProperty Name="meio_transporte" ColumnName="meio_transporte" />
+                <ScalarProperty Name="motivo_viagem" ColumnName="motivo_viagem" />
+                <ScalarProperty Name="proximo_destino" ColumnName="proximo_destino" />
+                <ScalarProperty Name="ultimo_destino" ColumnName="ultimo_destino" />
+                <ScalarProperty Name="id_funcionario" ColumnName="id_funcionario" />
+                <ScalarProperty Name="id_usuarioCheckOut" ColumnName="id_usuarioCheckOut" />
+                <ScalarProperty Name="id_usuarioCheckIn" ColumnName="id_usuarioCheckIn" />
+                <ScalarProperty Name="id_usuarioCadastro" ColumnName="id_usuarioCadastro" />
+                <ScalarProperty Name="id_quarto" ColumnName="id_quarto" />
+                <ScalarProperty Name="id_hospede" ColumnName="id_hospede" />
+                <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuario_cartao">
+            <EntityTypeMapping TypeName="db_pim_hmlModel.usuario_cartao">
+              <MappingFragment StoreEntitySet="usuario_cartao">
+                <ScalarProperty Name="data_validade" ColumnName="data_validade" />
+                <ScalarProperty Name="numero_cartao" ColumnName="numero_cartao" />
+                <ScalarProperty Name="nome_cartao" ColumnName="nome_cartao" />
+                <ScalarProperty Name="id_usuarioHospede" ColumnName="id_usuarioHospede" />
+                <ScalarProperty Name="idCartao" ColumnName="idCartao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuario_hospede">
+            <EntityTypeMapping TypeName="db_pim_hmlModel.usuario_hospede">
+              <MappingFragment StoreEntitySet="usuario_hospede">
+                <ScalarProperty Name="ultimo_acesso" ColumnName="ultimo_acesso" />
+                <ScalarProperty Name="primeiro_acesso" ColumnName="primeiro_acesso" />
+                <ScalarProperty Name="data_cadastro" ColumnName="data_cadastro" />
+                <ScalarProperty Name="senha" ColumnName="senha" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="id_hospede" ColumnName="id_hospede" />
+                <ScalarProperty Name="id_usuarioHospede" ColumnName="id_usuarioHospede" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuario_sistema">
+            <EntityTypeMapping TypeName="db_pim_hmlModel.usuario_sistema">
+              <MappingFragment StoreEntitySet="usuario_sistema">
+                <ScalarProperty Name="ativo" ColumnName="ativo" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="id_perfil" ColumnName="id_perfil" />
+                <ScalarProperty Name="senha" ColumnName="senha" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="id_usuarioSistema" ColumnName="id_usuarioSistema" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="acompanhante">
+            <EntityTypeMapping TypeName="db_pim_hmlModel.acompanhante">
+              <MappingFragment StoreEntitySet="acompanhante">
+                <ScalarProperty Name="ativo" ColumnName="ativo" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="data_nascimento" ColumnName="data_nascimento" />
+                <ScalarProperty Name="numero_identidade" ColumnName="numero_identidade" />
+                <ScalarProperty Name="tipo_identidade" ColumnName="tipo_identidade" />
+                <ScalarProperty Name="CPF" ColumnName="CPF" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="id_quarto" ColumnName="id_quarto" />
+                <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="database_firewall_rules">
+            <EntityTypeMapping TypeName="db_pim_hmlModel.database_firewall_rules">
+              <MappingFragment StoreEntitySet="database_firewall_rules">
+                <ScalarProperty Name="modify_date" ColumnName="modify_date" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="end_ip_address" ColumnName="end_ip_address" />
+                <ScalarProperty Name="start_ip_address" ColumnName="start_ip_address" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

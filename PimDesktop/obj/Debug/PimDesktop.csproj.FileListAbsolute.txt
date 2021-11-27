@@ -1,0 +1,9 @@
+C:\Users\lucas\source\repos\PimDesktop\PimDesktop\bin\Debug\PimDesktop.exe.config
+C:\Users\lucas\source\repos\PimDesktop\PimDesktop\bin\Debug\PimDesktop.exe
+C:\Users\lucas\source\repos\PimDesktop\PimDesktop\bin\Debug\PimDesktop.pdb
+C:\Users\lucas\source\repos\PimDesktop\PimDesktop\obj\Debug\PimDesktop.csproj.AssemblyReference.cache
+C:\Users\lucas\source\repos\PimDesktop\PimDesktop\obj\Debug\PimDesktop.Properties.Resources.resources
+C:\Users\lucas\source\repos\PimDesktop\PimDesktop\obj\Debug\PimDesktop.csproj.GenerateResource.cache
+C:\Users\lucas\source\repos\PimDesktop\PimDesktop\obj\Debug\PimDesktop.csproj.CoreCompileInputs.cache
+C:\Users\lucas\source\repos\PimDesktop\PimDesktop\obj\Debug\PimDesktop.exe
+C:\Users\lucas\source\repos\PimDesktop\PimDesktop\obj\Debug\PimDesktop.pdb

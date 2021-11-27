@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "a2659c06-c8e7-4494-9233-05e06b88c24c": {
+      "ProjectGuid": "a2659c06-c8e7-4494-9233-05e06b88c24c",
+      "DisplayName": "PimWebsite",
+      "ColorIndex": 0
+    },
+    "54c1125c-5e70-4807-a8f5-858caa2035ba": {
+      "ProjectGuid": "54c1125c-5e70-4807-a8f5-858caa2035ba",
+      "DisplayName": "PimWebApi",
+      "ColorIndex": 1
+    },
+    "8e41bf7a-5b26-4846-bb48-d0f1ff9b1905": {
+      "ProjectGuid": "8e41bf7a-5b26-4846-bb48-d0f1ff9b1905",
+      "DisplayName": "PimDesktop.Business",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}
