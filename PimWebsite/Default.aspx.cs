@@ -135,7 +135,7 @@ namespace PimWebsite
                 }
                 else
                 {
-                    var updateClientHolder = await clientController.getClientByDocument(clientHold.clientDocument, clientHold.typeDocument);
+                    var updateClientHolder = await clientController.getClientByDocument(sendClientData.clientDocument, sendClientData.typeDocument);
 
                     clientHold = new clientData();
 
@@ -160,8 +160,8 @@ namespace PimWebsite
                 clientData sendClientData = new clientData()
                 {
                     clientId = clientHold.clientId,
-                    updatePassword = createEmail.Value,
-                    emailUser = createPassword.Value
+                    updatePassword = createPassword.Value,
+                    emailUser = createEmail.Value
                 };
 
                 string resultResponse = await clientController.clientUserCreate(sendClientData);

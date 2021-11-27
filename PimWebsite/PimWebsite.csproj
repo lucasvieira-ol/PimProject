@@ -202,6 +202,7 @@
     <Content Include="jQuery-Mask-Plugin-master\README.md" />
     <None Include="Properties\PublishProfiles\hotel-pim - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\hotel-pim - Web Deploy1.pubxml" />
+    <None Include="Properties\PublishProfiles\hotel-pim - Web Deploy2.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="img\._bg-img-1.jpg" />
     <Content Include="img\._bg-img-2.jpg" />
