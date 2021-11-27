@@ -219,3 +219,4 @@ C:\Users\lucas.oliveira\PimProject\PimWebApi\obj\Debug\PimWebApi.csproj.CopyComp
 C:\Users\lucas.oliveira\PimProject\PimWebApi\obj\Debug\PimWebApi.dll
 C:\Users\lucas.oliveira\PimProject\PimWebApi\obj\Debug\PimWebApi.pdb
 C:\Users\lucas.oliveira\PimProject\PimWebApi\bin\cstrings.Config
+C:\PimProject\PimWebApi\bin\cstrings.Config

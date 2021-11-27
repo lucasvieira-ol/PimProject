@@ -43,3 +43,4 @@ C:\Users\lucas.oliveira\PimProject\PimDesktop.Business\obj\Debug\PimDesktop.Busi
 C:\Users\lucas.oliveira\PimProject\PimDesktop.Business\obj\Debug\PimDesktop.Business.dll
 C:\Users\lucas.oliveira\PimProject\PimDesktop.Business\obj\Debug\PimDesktop.Business.pdb
 C:\Users\lucas.oliveira\PimProject\PimDesktop.Business\bin\Debug\cstrings.Config
+C:\PimProject\PimDesktop.Business\bin\Debug\cstrings.Config

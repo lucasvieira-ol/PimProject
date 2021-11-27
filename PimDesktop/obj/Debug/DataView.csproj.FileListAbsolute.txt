@@ -122,3 +122,4 @@ C:\Users\lucas.oliveira\PimProject\PimDesktop\obj\Debug\DataView.csproj.CoreComp
 C:\Users\lucas.oliveira\PimProject\PimDesktop\obj\Debug\PimDesktop.exe
 C:\Users\lucas.oliveira\PimProject\PimDesktop\obj\Debug\PimDesktop.pdb
 C:\Users\lucas.oliveira\PimProject\PimDesktop\bin\Debug\cstrings.Config
+C:\PimProject\PimDesktop\bin\Debug\cstrings.Config

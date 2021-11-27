@@ -33,3 +33,4 @@ C:\Users\lucas.oliveira\PimProject\PimDesktop.Data.Server\obj\Debug\PimDesktop.D
 C:\Users\lucas.oliveira\PimProject\PimDesktop.Data.Server\obj\Debug\PimDesktop.Data.Server.dll
 C:\Users\lucas.oliveira\PimProject\PimDesktop.Data.Server\obj\Debug\PimDesktop.Data.Server.pdb
 C:\Users\lucas.oliveira\PimProject\PimDesktop.Data.Server\bin\Debug\cstrings.Config
+C:\PimProject\PimDesktop.Data.Server\bin\Debug\cstrings.Config
